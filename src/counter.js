@@ -5,7 +5,7 @@ export default function Counter() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/counter")
+    fetch("https://shrouded-everglades-64450.herokuapp.com/api/counter")
       .then((res) => res.json())
       .then((data) => {
         setCounter(data.current);
@@ -14,7 +14,7 @@ export default function Counter() {
   }, []);
 
   function handleIncrement() {
-    fetch("http://localhost:4000/api/counter/add", {
+    fetch("https://shrouded-everglades-64450.herokuapp.com/api/counter/add", {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -25,9 +25,12 @@ export default function Counter() {
   }
 
   function handleDecrement() {
-    fetch("http://localhost:4000/api/counter/subtract", {
-      method: "PUT",
-    })
+    fetch(
+      "https://shrouded-everglades-64450.herokuapp.com/api/counter/subtract",
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setCounter(data.current);
@@ -36,7 +39,7 @@ export default function Counter() {
   }
 
   function handleReset() {
-    fetch("http://localhost:4000/api/counter/reset", {
+    fetch("https://shrouded-everglades-64450.herokuapp.com/api/counter/reset", {
       method: "PUT",
     })
       .then((res) => res.json())
